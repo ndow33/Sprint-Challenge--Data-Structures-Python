@@ -1,4 +1,7 @@
 import time
+from queue import Queue
+from singly_linked_list import LinkedList
+from singly_linked_list import Node
 
 start_time = time.time()
 
@@ -13,10 +16,26 @@ f.close()
 duplicates = []  # Return the list of duplicates in this data structure
 
 # Replace the nested for loops below with your improvements
-for name_1 in names_1:
+'''for name_1 in names_1:
     for name_2 in names_2:
         if name_1 == name_2:
-            duplicates.append(name_1)
+            duplicates.append(name_1)'''
+new_q = Queue()
+ll = LinkedList()
+
+for name_1 in names_1:
+    # add each name to a linked list
+    ll.add_to_tail(name_1)
+
+for name_2 in names_2:
+    current = ll.head
+    while current.next_node is not None:
+        if name_2 == current.value:
+            duplicates.append(name_2)
+            current = current.next_node
+        else:
+            current = current.next_node
+
 
 end_time = time.time()
 print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
