@@ -1,7 +1,5 @@
 import time
-from queue import Queue
-from singly_linked_list import LinkedList
-from singly_linked_list import Node
+from binary_search_tree import BSTNode
 
 start_time = time.time()
 
@@ -20,21 +18,18 @@ duplicates = []  # Return the list of duplicates in this data structure
     for name_2 in names_2:
         if name_1 == name_2:
             duplicates.append(name_1)'''
-new_q = Queue()
-ll = LinkedList()
+# create a BSTNode from the first name in the list
+node = BSTNode(names_1[0])
 
+# for each name in the list, insert it into a binary search tree
 for name_1 in names_1:
-    # add each name to a linked list
-    ll.add_to_tail(name_1)
-
+    node.insert(name_1)
+# for each name in the second list,
+# see if the bst contains that name
 for name_2 in names_2:
-    current = ll.head
-    while current.next_node is not None:
-        if name_2 == current.value:
-            duplicates.append(name_2)
-            current = current.next_node
-        else:
-            current = current.next_node
+    if node.contains(name_2):
+        duplicates.append(name_2)
+
 
 
 end_time = time.time()
