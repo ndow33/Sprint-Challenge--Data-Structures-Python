@@ -38,5 +38,22 @@ class LinkedList:
 
         return False
 
-    def reverse_list(self, node, prev):
-        pass
+    def reverse_list(self, node, prev=None):
+        # are there any nodes in the list?
+        if node is None:
+            return
+        p = node
+        q = p.next_node
+
+        if q is None:
+            self.head = p
+            return
+        
+        q = self.reverse_list(q)
+        p.next_node.next_node = p
+        p.next_node = None
+
+        # set the head equal to the last digit
+
+        
+        
