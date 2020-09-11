@@ -20,10 +20,16 @@ duplicates = []  # Return the list of duplicates in this data structure
             duplicates.append(name_1)'''
 # create a BSTNode from the first name in the list
 node = BSTNode(names_1[0])
+print(names_1[0])
 
 # for each name in the list, insert it into a binary search tree
 for name_1 in names_1:
     node.insert(name_1)
+
+print(node.left, node.right)
+print(node.get_max())
+print(node.get_min())
+
 # for each name in the second list,
 # see if the bst contains that name
 for name_2 in names_2:
