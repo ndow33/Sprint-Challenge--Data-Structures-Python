@@ -18,16 +18,12 @@ class RingBuffer:
             if self.index > (len(self.storage)-1):
                 # if it is, then set the index to 0
                 self.index = 0
-                # pop the value at index off of the array
-                self.storage.pop(self.index)
-                # and insert the value at the specified index
+                # and insert the value at the front of the list
                 self.storage.insert(self.index, item)
                 # increment the index
                 self.index += 1
             # if the index is in bounds
             else:
-                # pop the value at index off of the array
-                self.storage.pop(self.index)
                 # insert the value at the index of the list
                 self.storage.insert(self.index, item)
                 # increment index
